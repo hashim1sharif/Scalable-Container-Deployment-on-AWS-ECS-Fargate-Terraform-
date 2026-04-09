@@ -60,4 +60,4 @@ jobs:
         run: pytest . || true
 
       - name: Build Docker image
-        run: docker build -t fastapi-blog-app:ci .
+        run: docker build -t fastapi-blog-app:ci 
