@@ -10,10 +10,10 @@ permissions:
   contents: read
 
 env:
-    AWS_REGION=eu-west-1
-    ECR_REPOSITORY=ecs-fastapi-blog-dev
-    ECS_CLUSTER=ecs-fastapi-blog-dev-cluster
-    ECS_SERVICE=ecs-fastapi-blog-dev-service
+  AWS_REGION: eu-west-1
+  ECR_REPOSITORY: ecs-fastapi-blog-dev
+  ECS_CLUSTER: ecs-fastapi-blog-dev-cluster
+  ECS_SERVICE: ecs-fastapi-blog-dev-service
 
 jobs:
   deploy:
@@ -44,22 +44,22 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:latest
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:latest
 
       - name: Force ECS deployment
         run: |
           aws ecs update-service \
-            --cluster "$ECS_CLUSTER" \
-            --service "$ECS_SERVICE" \
+            --cluster "${{ env.ECS_CLUSTER }}" \
+            --service "${{ env.ECS_SERVICE }}" \
             --force-new-deployment \
-            --region "$AWS_REGION"
+            --region "${{ env.AWS_REGION }}"
 
       - name: Wait for service to stabilize
         run: |
           aws ecs wait services-stable \
-            --cluster "$ECS_CLUSTER" \
-            --services "$ECS_SERVICE" \
-            --region "$AWS_REGION"
+            --cluster "${{ env.ECS_CLUSTER }}" \
+            --services "${{ env.ECS_SERVICE }}" \
+            --region "${{ env.AWS_REGION }}"
 
       - name: Health check
         run: |
