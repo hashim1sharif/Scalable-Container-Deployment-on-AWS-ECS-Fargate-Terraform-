@@ -10,11 +10,11 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: ${{ vars.AWS_REGION }}
-  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
-  ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}
-  ECS_SERVICE: ${{ vars.ECS_SERVICE }}
-  
+    AWS_REGION=eu-west-1
+    ECR_REPOSITORY=ecs-fastapi-blog-dev
+    ECS_CLUSTER=ecs-fastapi-blog-dev-cluster
+    ECS_SERVICE=ecs-fastapi-blog-dev-service
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
