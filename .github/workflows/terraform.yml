@@ -36,9 +36,23 @@ jobs:
 
     env:
       AWS_REGION: eu-west-1
-      TF_VAR_aws_region: eu-west-1
       TF_INPUT: false
       TF_IN_AUTOMATION: true
+
+      TF_VAR_aws_region: eu-west-1
+      TF_VAR_project_name: ${{ vars.TF_PROJECT_NAME }}
+      TF_VAR_environment: ${{ vars.TF_ENVIRONMENT }}
+      TF_VAR_vpc_cidr: ${{ vars.TF_VPC_CIDR }}
+      TF_VAR_public_subnet_az1_cidr: ${{ vars.TF_PUBLIC_SUBNET_AZ1_CIDR }}
+      TF_VAR_public_subnet_az2_cidr: ${{ vars.TF_PUBLIC_SUBNET_AZ2_CIDR }}
+      TF_VAR_private_subnet_az1_cidr: ${{ vars.TF_PRIVATE_SUBNET_AZ1_CIDR }}
+      TF_VAR_private_subnet_az2_cidr: ${{ vars.TF_PRIVATE_SUBNET_AZ2_CIDR }}
+      TF_VAR_container_port: ${{ vars.TF_CONTAINER_PORT }}
+      TF_VAR_domain_name: ${{ vars.TF_DOMAIN_NAME }}
+      TF_VAR_subdomain_name: ${{ vars.TF_SUBDOMAIN_NAME }}
+      TF_VAR_db_name: ${{ vars.TF_DB_NAME }}
+      TF_VAR_db_username: ${{ vars.TF_DB_USERNAME }}
+      TF_VAR_db_password: ${{ secrets.TF_DB_PASSWORD }}
 
     steps:
       - name: Checkout code
@@ -57,7 +71,9 @@ jobs:
         run: |
           echo "AWS_REGION=$AWS_REGION"
           echo "TF_VAR_aws_region=$TF_VAR_aws_region"
-          echo "TF_INPUT=$TF_INPUT"
+          echo "TF_VAR_project_name=$TF_VAR_project_name"
+          echo "TF_VAR_environment=$TF_VAR_environment"
+          echo "TF_VAR_domain_name=$TF_VAR_domain_name"
           echo "Using updated terraform workflow"
 
       - name: Terraform Init
