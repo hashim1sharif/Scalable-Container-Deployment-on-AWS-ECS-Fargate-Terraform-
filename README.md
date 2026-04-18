@@ -31,6 +31,7 @@ Met dit project heb ik laten zien hoe je dit oplost met moderne cloud technieken
 
 # Architectuur Diagram
 
+
 De applicatie bestaat uit meerdere onderdelen:
 
       **Application Load Balancer (ALB)**  
@@ -117,6 +118,6 @@ Tijdens dit project heb ik meerdere realistische problemen opgelost:
 # Hoe kun je dit project draaien?
 
 ### 1. Clone de repository
-```bash
+
 git clone <your-repo-url>
 cd your-project
