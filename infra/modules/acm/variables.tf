@@ -1,7 +1,15 @@
-variable "project_name" {}
+variable "project_name" {
+  type = string
+}
 
-variable "environment" {}
+variable "environment" {
+  type = string
+}
 
-variable "domain_name" {}
+variable "domain_name" {
+  type = string
+}
 
-variable "subdomain_name" {}
+variable "subdomain_name" {
+    type = string
+}

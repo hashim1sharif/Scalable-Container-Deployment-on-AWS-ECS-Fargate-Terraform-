@@ -1,21 +1,43 @@
-variable "project_name" {}
+variable "project_name" {
+    type = string
+}
 
-variable "environment" {}
+variable "environment" {
 
-variable "aws_region" {}
+}
 
-variable "private_subnet_ids" {}
+variable "aws_region" {
+    type = string
+}
 
-variable "app_security_group_id" {}
+variable "private_subnet_ids" {
+    type = list(string)
+}
 
-variable "target_group_arn" {}
+variable "app_security_group_id" {
+    type = string
+}
 
-variable "container_port" {}
+variable "target_group_arn" {
+    type = string
+}
 
-variable "ecr_repository_url" {}
+variable "container_port" {
+    type = number
+}
 
-variable "image_tag" {}
+variable "ecr_repository_url" {
+    type = string
+}
 
-variable "desired_count" {}
+variable "image_tag" {
+    type = string
+}
 
-variable "db_secret_arn" {}
+variable "desired_count" {
+    type = number
+}
+
+variable "db_secret_arn" {
+    type = string
+}
