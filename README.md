@@ -92,7 +92,6 @@ Dit is geen simpele demo maar een end-to-end cloud setup
 ✅ CI/CD pipeline  
 ✅ Logging & monitoring  
 
-   Dit lijkt sterk op hoe bedrijven hun systemen bouwen
 
 
 
