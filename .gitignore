@@ -18,7 +18,6 @@ override.tf.json
 *_override.tf.json
 terraform.tfvars
 terraform.tfvars.
-terraform.tfstate.backup
 
 # OS / editor
 .vscode/
