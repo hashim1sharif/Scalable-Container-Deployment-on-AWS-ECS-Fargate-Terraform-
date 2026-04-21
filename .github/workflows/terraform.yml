@@ -1,11 +1,6 @@
 name: Terraform
 
 on:
-  pull_request:
-    paths:
-      - "infra/**"
-      - ".github/workflows/terraform.yml"
-
   push:
     branches: ["main"]
     paths:
@@ -37,22 +32,17 @@ jobs:
       TF_INPUT: false
       TF_IN_AUTOMATION: true
 
-      
       TF_VAR_aws_region: eu-west-1
       TF_VAR_project_name: ecs-fastapi-blog
       TF_VAR_environment: dev
-
       TF_VAR_vpc_cidr: 10.0.0.0/16
       TF_VAR_public_subnet_az1_cidr: 10.0.1.0/24
       TF_VAR_public_subnet_az2_cidr: 10.0.2.0/24
       TF_VAR_private_subnet_az1_cidr: 10.0.3.0/24
       TF_VAR_private_subnet_az2_cidr: 10.0.4.0/24
-
       TF_VAR_container_port: 8000
-
       TF_VAR_domain_name: hashim-next-gen.com
       TF_VAR_subdomain_name: api
-
       TF_VAR_db_name: fastapi
       TF_VAR_db_username: postgres
       TF_VAR_db_password: ${{ secrets.TF_DB_PASSWORD }}
